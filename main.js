@@ -1,3 +1,5 @@
+let repoSite = "https://bentsileviavtau.github.io/VV/";
+
 var welcome_block = {
     type: 'instructions',
     pages: [
@@ -19,10 +21,10 @@ var instructions_block = {
     "<p>Subsequently, the item will disappear and you will see two items. One item shares <strong>two features</strong> with the original item, and the other shares only <strong>one feature</strong>.</p>" +
     "<p>Your task is to determine which of the two items is <strong>MORE SIMILAR</strong> to the original.</p>" +
     "<p>Please use the <strong>right arrow</strong> and the <strong>left arrow</strong> keys to select the picture or word that is more similar to the original item.</p> " +
-    "<img style ='display: block; margin: auto;height: 40%;' src= 'ImageFiles/t1.bmp' alt='Picture'>" +
+    `<img style ='display: block; margin: auto;height: 40%;' src=  '${repoSite}ImageFiles/t1.bmp' alt='Picture'>` +
     "<p>For example, this picture is <strong>blue, heart, and spirals</strong>.</p>",
         "<p style='font-size:0.8em;text-align:center;'>Page 2 of 3</p>" +
-        "<img style='display: block; margin: auto; height: 40%;'src= 'ImageFiles/p1.bmp' alt='Picture'>" +
+        `<img style='display: block; margin: auto; height: 40%;'src= '${repoSite}ImageFiles/p1.bmp' alt='Picture'>` +
         "<p>In this example, the left item is similar to the original item in two features,<strong>color and shape</strong>, whereas the right item is similar to the original item only in one feature, <strong>texture</strong>.</p>" +
         "<p>Therefore, you should press the <strong>left arrow key</strong> to indicate that the left item is more similar to the original item than the right item.</p>",
         "<p style='font-size:0.8em;text-align:center;'>Page 3 of 3</p>" +
@@ -54,54 +56,54 @@ var block = {
         /*Bolder plus*/
         /*Word with words, picture with pictures*/
         /*Double check if errors*/
-        {stimuli: ['ImageFiles/t1.bmp', 'ImageFiles/p1.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/wt1.bmp', 'ImageFiles/wp1.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/t2.bmp', 'ImageFiles/p2.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/wt2.bmp', 'ImageFiles/wp2.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/t3.bmp', 'ImageFiles/p3.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/wt3.bmp', 'ImageFiles/wp3.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/t4.bmp', 'ImageFiles/p4.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/wt4.bmp', 'ImageFiles/wp4.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/t5.bmp', 'ImageFiles/p5.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/wt5.bmp', 'ImageFiles/wp5.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/t6.bmp', 'ImageFiles/p6.bmp'], answer: 'different'},
-        {stimuli: ['ImageFiles/wt6.bmp', 'ImageFiles/wp6.bmp'], answer: 'different'},
-        {stimuli: ['ImageFiles/t7.bmp', 'ImageFiles/p7.bmp'], answer: 'different'},
-        {stimuli: ['ImageFiles/wt7.bmp', 'ImageFiles/wp7.bmp'], answer: 'different'},
-        {stimuli: ['ImageFiles/t8.bmp', 'ImageFiles/p8.bmp'], answer: 'different'},
-        {stimuli: ['ImageFiles/wt8.bmp', 'ImageFiles/wp8.bmp'], answer: 'different'},
-        {stimuli: ['ImageFiles/t9.bmp', 'ImageFiles/p9.bmp'], answer: 'different'},
-        {stimuli: ['ImageFiles/wt9.bmp', 'ImageFiles/wp9.bmp'], answer: 'different'},
-        {stimuli: ['ImageFiles/t10.bmp', 'ImageFiles/p10.bmp'], answer: 'different'},
-        {stimuli: ['ImageFiles/wt10.bmp', 'ImageFiles/wp10.bmp'], answer: 'different'},
-        {stimuli: ['ImageFiles/t11.bmp', 'ImageFiles/p11.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/wt11.bmp', 'ImageFiles/wp11.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/t12.bmp', 'ImageFiles/p12.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/wt12.bmp', 'ImageFiles/wp12.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/t13.bmp', 'ImageFiles/p13.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/wt13.bmp', 'ImageFiles/wp13.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/t14.bmp', 'ImageFiles/p14.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/wt14.bmp', 'ImageFiles/wp14.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/t15.bmp', 'ImageFiles/p15.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/wt15.bmp', 'ImageFiles/wp15.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/t16.bmp', 'ImageFiles/p16.bmp'], answer: 'different'},
-        {stimuli: ['ImageFiles/wt16.bmp', 'ImageFiles/wp16.bmp'], answer: 'different'},
-        {stimuli: ['ImageFiles/t17.bmp', 'ImageFiles/p17.bmp'], answer: 'different'},
-        {stimuli: ['ImageFiles/wt17.bmp', 'ImageFiles/wp17.bmp'], answer: 'different'},
-        {stimuli: ['ImageFiles/t18.bmp', 'ImageFiles/p18.bmp'], answer: 'different'},
-        {stimuli: ['ImageFiles/wt18.bmp', 'ImageFiles/wp18.bmp'], answer: 'different'},
-        {stimuli: ['ImageFiles/t19.bmp', 'ImageFiles/p19.bmp'], answer: 'different'},
-        {stimuli: ['ImageFiles/wt19.bmp', 'ImageFiles/wp19.bmp'], answer: 'different'},
-        {stimuli: ['ImageFiles/t20.bmp', 'ImageFiles/p20.bmp'], answer: 'different'},
-        {stimuli: ['ImageFiles/wt20.bmp', 'ImageFiles/wp20.bmp'], answer: 'different'},
-        {stimuli: ['ImageFiles/t21.bmp', 'ImageFiles/p21.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/wt21.bmp', 'ImageFiles/wp21.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/t22.bmp', 'ImageFiles/p22.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/wt22.bmp', 'ImageFiles/wp22.bmp'], answer: 'same'},
-        {stimuli: ['ImageFiles/t23.bmp', 'ImageFiles/p23.bmp'], answer: 'different'},
-        {stimuli: ['ImageFiles/wt23.bmp', 'ImageFiles/wp23.bmp'], answer: 'different'},
-        {stimuli: ['ImageFiles/t24.bmp', 'ImageFiles/p24.bmp'], answer: 'different'},
-        {stimuli: ['ImageFiles/wt24.bmp', 'ImageFiles/wp24.bmp'], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/t1.bmp`, `${repoSite}ImageFiles/p1.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/wt1.bmp`, `${repoSite}ImageFiles/wp1.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/t2.bmp`, `${repoSite}ImageFiles/p2.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/wt2.bmp`, `${repoSite}ImageFiles/wp2.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/t3.bmp`, `${repoSite}ImageFiles/p3.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/wt3.bmp`, `${repoSite}ImageFiles/wp3.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/t4.bmp`, `${repoSite}ImageFiles/p4.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/wt4.bmp`, `${repoSite}ImageFiles/wp4.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/t5.bmp`, `${repoSite}ImageFiles/p5.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/wt5.bmp`, `${repoSite}ImageFiles/wp5.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/t6.bmp`, `${repoSite}ImageFiles/p6.bmp`], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/wt6.bmp`, `${repoSite}ImageFiles/wp6.bmp`], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/t7.bmp`, `${repoSite}ImageFiles/p7.bmp`], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/wt7.bmp`, `${repoSite}ImageFiles/wp7.bmp`], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/t8.bmp`, `${repoSite}ImageFiles/p8.bmp`], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/wt8.bmp`, `${repoSite}ImageFiles/wp8.bmp`], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/t9.bmp`, `${repoSite}ImageFiles/p9.bmp`], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/wt9.bmp`, `${repoSite}ImageFiles/wp9.bmp`], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/t10.bmp`, `${repoSite}ImageFiles/p10.bmp`], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/wt10.bmp`, `${repoSite}ImageFiles/wp10.bmp`], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/t11.bmp`, `${repoSite}ImageFiles/p11.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/wt11.bmp`, `${repoSite}ImageFiles/wp11.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/t12.bmp`, `${repoSite}ImageFiles/p12.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/wt12.bmp`, `${repoSite}ImageFiles/wp12.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/t13.bmp`, `${repoSite}ImageFiles/p13.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/wt13.bmp`, `${repoSite}ImageFiles/wp13.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/t14.bmp`, `${repoSite}ImageFiles/p14.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/wt14.bmp`, `${repoSite}ImageFiles/wp14.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/t15.bmp`, `${repoSite}ImageFiles/p15.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/wt15.bmp`, `${repoSite}ImageFiles/wp15.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/t16.bmp`, `${repoSite}ImageFiles/p16.bmp`], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/wt16.bmp`, `${repoSite}ImageFiles/wp16.bmp`], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/t17.bmp`, `${repoSite}ImageFiles/p17.bmp`], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/wt17.bmp`, `${repoSite}ImageFiles/wp17.bmp`], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/t18.bmp`, `${repoSite}ImageFiles/p18.bmp`], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/wt18.bmp`, `${repoSite}ImageFiles/wp18.bmp`], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/t19.bmp`, `${repoSite}ImageFiles/p19.bmp`], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/wt19.bmp`, `${repoSite}ImageFiles/wp19.bmp`], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/t20.bmp`, `${repoSite}ImageFiles/p20.bmp`], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/wt20.bmp`, `${repoSite}ImageFiles/wp20.bmp`], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/t21.bmp`, `${repoSite}ImageFiles/p21.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/wt21.bmp`, `${repoSite}ImageFiles/wp21.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/t22.bmp`, `${repoSite}ImageFiles/p22.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/wt22.bmp`, `${repoSite}ImageFiles/wp22.bmp`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/t23.bmp`, `${repoSite}ImageFiles/p23.bmp`], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/wt23.bmp`, `${repoSite}ImageFiles/wp23.bmp`], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/t24.bmp`, `${repoSite}ImageFiles/p24.bmp`], answer: 'different'},
+        {stimuli: [`${repoSite}ImageFiles/wt24.bmp`, `${repoSite}ImageFiles/wp24.bmp`], answer: 'different'},
     ],
     randomize_order: true
 
@@ -558,4 +560,4 @@ timeline.push(survey_trial);
 var timeline2 = []
 timeline2.push(debrief_block);
 
-var images = ['ImageFiles/p1.bmp', 'ImageFiles/p2.bmp', 'ImageFiles/p3.bmp', 'ImageFiles/p4.bmp', 'ImageFiles/p5.bmp', 'ImageFiles/p6.bmp', 'ImageFiles/p7.bmp', 'ImageFiles/p8.bmp', 'ImageFiles/p9.bmp', 'ImageFiles/p10.bmp', 'ImageFiles/p11.bmp', 'ImageFiles/p12.bmp', 'ImageFiles/p13.bmp', 'ImageFiles/p14.bmp', 'ImageFiles/p15.bmp', 'ImageFiles/p16.bmp', 'ImageFiles/p17.bmp', 'ImageFiles/p18.bmp', 'ImageFiles/p19.bmp', 'ImageFiles/p20.bmp', 'ImageFiles/p21.bmp', 'ImageFiles/p22.bmp', 'ImageFiles/p23.bmp', 'ImageFiles/p24.bmp', 'ImageFiles/t1.bmp', 'ImageFiles/t2.bmp', 'ImageFiles/t3.bmp', 'ImageFiles/t4.bmp', 'ImageFiles/t5.bmp', 'ImageFiles/t6.bmp', 'ImageFiles/t7.bmp', 'ImageFiles/t8.bmp', 'ImageFiles/t9.bmp', 'ImageFiles/t10.bmp', 'ImageFiles/t11.bmp', 'ImageFiles/t12.bmp', 'ImageFiles/t13.bmp', 'ImageFiles/t14.bmp', 'ImageFiles/t15.bmp', 'ImageFiles/t16.bmp', 'ImageFiles/t17.bmp', 'ImageFiles/t18.bmp', 'ImageFiles/t19.bmp', 'ImageFiles/t20.bmp', 'ImageFiles/t21.bmp', 'ImageFiles/t22.bmp', 'ImageFiles/t23.bmp', 'ImageFiles/t24.bmp', 'ImageFiles/wp1.bmp', 'ImageFiles/wp2.bmp', 'ImageFiles/wp3.bmp', 'ImageFiles/wp4.bmp', 'ImageFiles/wp5.bmp', 'ImageFiles/wp6.bmp', 'ImageFiles/wp7.bmp', 'ImageFiles/wp8.bmp', 'ImageFiles/wp9.bmp', 'ImageFiles/wp10.bmp', 'ImageFiles/wp11.bmp', 'ImageFiles/wp12.bmp', 'ImageFiles/wp13.bmp', 'ImageFiles/wp14.bmp', 'ImageFiles/wp15.bmp', 'ImageFiles/wp16.bmp', 'ImageFiles/wp17.bmp', 'ImageFiles/wp18.bmp', 'ImageFiles/wp19.bmp', 'ImageFiles/wp20.bmp', 'ImageFiles/wp21.bmp', 'ImageFiles/wp22.bmp', 'ImageFiles/wp23.bmp', 'ImageFiles/wp24.bmp', 'ImageFiles/wt1.bmp', 'ImageFiles/wt2.bmp', 'ImageFiles/wt3.bmp', 'ImageFiles/wt4.bmp', 'ImageFiles/wt5.bmp', 'ImageFiles/wt6.bmp', 'ImageFiles/wt7.bmp', 'ImageFiles/wt8.bmp', 'ImageFiles/wt9.bmp', 'ImageFiles/wt10.bmp', 'ImageFiles/wt11.bmp', 'ImageFiles/wt12.bmp', 'ImageFiles/wt13.bmp', 'ImageFiles/wt14.bmp', 'ImageFiles/wt15.bmp', 'ImageFiles/wt16.bmp', 'ImageFiles/wt17.bmp', 'ImageFiles/wt18.bmp', 'ImageFiles/wt19.bmp', 'ImageFiles/wt20.bmp', 'ImageFiles/wt21.bmp', 'ImageFiles/wt22.bmp', 'ImageFiles/wt23.bmp', 'ImageFiles/wt24.bmp'];
+var images = [`${repoSite}ImageFiles/p1.bmp`, `${repoSite}ImageFiles/p2.bmp`, `${repoSite}ImageFiles/p3.bmp`, `${repoSite}ImageFiles/p4.bmp`, `${repoSite}ImageFiles/p5.bmp`, `${repoSite}ImageFiles/p6.bmp`, `${repoSite}ImageFiles/p7.bmp`, `${repoSite}ImageFiles/p8.bmp`, `${repoSite}ImageFiles/p9.bmp`, `${repoSite}ImageFiles/p10.bmp`, `${repoSite}ImageFiles/p11.bmp`, `${repoSite}ImageFiles/p12.bmp`, `${repoSite}ImageFiles/p13.bmp`, `${repoSite}ImageFiles/p14.bmp`, `${repoSite}ImageFiles/p15.bmp`, `${repoSite}ImageFiles/p16.bmp`, `${repoSite}ImageFiles/p17.bmp`, `${repoSite}ImageFiles/p18.bmp`, `${repoSite}ImageFiles/p19.bmp`, `${repoSite}ImageFiles/p20.bmp`, `${repoSite}ImageFiles/p21.bmp`, `${repoSite}ImageFiles/p22.bmp`, `${repoSite}ImageFiles/p23.bmp`, `${repoSite}ImageFiles/p24.bmp`, `${repoSite}ImageFiles/t1.bmp`, `${repoSite}ImageFiles/t2.bmp`, `${repoSite}ImageFiles/t3.bmp`, `${repoSite}ImageFiles/t4.bmp`, `${repoSite}ImageFiles/t5.bmp`, `${repoSite}ImageFiles/t6.bmp`, `${repoSite}ImageFiles/t7.bmp`, `${repoSite}ImageFiles/t8.bmp`, `${repoSite}ImageFiles/t9.bmp`, `${repoSite}ImageFiles/t10.bmp`, `${repoSite}ImageFiles/t11.bmp`, `${repoSite}ImageFiles/t12.bmp`, `${repoSite}ImageFiles/t13.bmp`, `${repoSite}ImageFiles/t14.bmp`, `${repoSite}ImageFiles/t15.bmp`, `${repoSite}ImageFiles/t16.bmp`, `${repoSite}ImageFiles/t17.bmp`, `${repoSite}ImageFiles/t18.bmp`, `${repoSite}ImageFiles/t19.bmp`, `${repoSite}ImageFiles/t20.bmp`, `${repoSite}ImageFiles/t21.bmp`, `${repoSite}ImageFiles/t22.bmp`, `${repoSite}ImageFiles/t23.bmp`, `${repoSite}ImageFiles/t24.bmp`, `${repoSite}ImageFiles/wp1.bmp`, `${repoSite}ImageFiles/wp2.bmp`, `${repoSite}ImageFiles/wp3.bmp`, `${repoSite}ImageFiles/wp4.bmp`, `${repoSite}ImageFiles/wp5.bmp`, `${repoSite}ImageFiles/wp6.bmp`, `${repoSite}ImageFiles/wp7.bmp`, `${repoSite}ImageFiles/wp8.bmp`, `${repoSite}ImageFiles/wp9.bmp`, `${repoSite}ImageFiles/wp10.bmp`, `${repoSite}ImageFiles/wp11.bmp`, `${repoSite}ImageFiles/wp12.bmp`, `${repoSite}ImageFiles/wp13.bmp`, `${repoSite}ImageFiles/wp14.bmp`, `${repoSite}ImageFiles/wp15.bmp`, `${repoSite}ImageFiles/wp16.bmp`, `${repoSite}ImageFiles/wp17.bmp`, `${repoSite}ImageFiles/wp18.bmp`, `${repoSite}ImageFiles/wp19.bmp`, `${repoSite}ImageFiles/wp20.bmp`, `${repoSite}ImageFiles/wp21.bmp`, `${repoSite}ImageFiles/wp22.bmp`, `${repoSite}ImageFiles/wp23.bmp`, `${repoSite}ImageFiles/wp24.bmp`, `${repoSite}ImageFiles/wt1.bmp`, `${repoSite}ImageFiles/wt2.bmp`, `${repoSite}ImageFiles/wt3.bmp`, `${repoSite}ImageFiles/wt4.bmp`, `${repoSite}ImageFiles/wt5.bmp`, `${repoSite}ImageFiles/wt6.bmp`, `${repoSite}ImageFiles/wt7.bmp`, `${repoSite}ImageFiles/wt8.bmp`, `${repoSite}ImageFiles/wt9.bmp`, `${repoSite}ImageFiles/wt10.bmp`, `${repoSite}ImageFiles/wt11.bmp`, `${repoSite}ImageFiles/wt12.bmp`, `${repoSite}ImageFiles/wt13.bmp`, `${repoSite}ImageFiles/wt14.bmp`, `${repoSite}ImageFiles/wt15.bmp`, `${repoSite}ImageFiles/wt16.bmp`, `${repoSite}ImageFiles/wt17.bmp`, `${repoSite}ImageFiles/wt18.bmp`, `${repoSite}ImageFiles/wt19.bmp`, `${repoSite}ImageFiles/wt20.bmp`, `${repoSite}ImageFiles/wt21.bmp`, `${repoSite}ImageFiles/wt22.bmp`, `${repoSite}ImageFiles/wt23.bmp`, `${repoSite}ImageFiles/wt24.bmp`];
