@@ -1,0 +1,402 @@
+<!doctype html>
+<html>
+<head>
+    <title>My experiment</title>
+    <script src="main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="jquery.fittext.js"></script>
+    <script src="sweetalert.min.js"></script>
+    <script src="jspsych-5.0.3/jspsych.js"></script>
+    <script src="jspsych-5.0.3/plugins/jspsych-text.js"></script>
+    <script src="jspsych-5.0.3/plugins/jspsych-instructions.js"></script>
+    <script src="jspsych-5.0.3/plugins/jspsych-single-stim.js"></script>
+    <script src="jspsych-5.0.3/plugins/jspsych-same-different.js"></script>
+    <script src="jspsych-5.0.3/plugins/jspsych-survey-multi-choice.js"></script>
+    <script src="jspsych-5.0.3/plugins/jspsych-survey-likert.js"></script>
+    <script src="jspsych-5.0.3/plugins/jspsych-survey-text.js"></script>
+
+    <link href="jspsych-5.0.3/css/jspsych.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="sweetalert/sweetalert/dist/sweetalert.css"/>
+</head>
+<body>
+<p id='load'></p>
+</body>
+
+<script>
+
+    jQuery(".jspsych-display-element").fitText();
+    /* define welcome message block */
+    /* define instructions block */
+
+    //Bug - Happens when you don't give any keyboard input
+
+    //GUID should be date YYYYMMDD_5 digit random code
+    function guid() {
+
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+        var yyyy = today.getFullYear();
+
+        if (dd < 10) {
+            dd = '0' + dd
+        }
+
+        if (mm < 10) {
+            mm = '0' + mm
+        }
+
+        var code = Math.floor(1000 + Math.random() * 9000);
+        return mm + '' + dd + '' + yyyy + '_' + code
+    }
+
+
+    function ConvertToCSV(objArray) {
+        var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+        //var str = 'sub ID, presentation Order, trialNumber, targetImage, probeImage, pressedKeyNum, pressedKeyName, RT, medium, mediumCode, accuracy, accuracyCode\r\n';
+        var str = '';
+        for (var i = 0; i < array.length; i++) {
+            var line = '';
+            for (var index in array[i]) {
+                if (line != '') line += ','
+
+                line += array[i][index];
+            }
+
+            str += line + '\r\n';
+        }
+
+        return str;
+    }
+
+    function Trial(subid, qid, order, trialNum, TargetImage, ProbeImage, pressedKeyNum, pressedKeyName, RT, medium, mediumCode, accuracy, accuracyCode) {
+        this.subid = subid;
+        this.qid = qid;
+        this.order = order;
+        this.trialNum = trialNum;
+        this.TargetImage = TargetImage;
+        this.ProbeImage = ProbeImage;
+        this.pressedKeyNum = pressedKeyNum;
+        this.pressedKeyName = pressedKeyName;
+        this.RT = RT;
+        this.medium = medium;
+        this.mediumCode = mediumCode;
+        this.accuracy = accuracy;
+        this.accuracyCode = accuracyCode;
+    }
+
+    function ConvertToCSVdemographics(objArray) {
+        var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+        //var str = 'sub ID, q1, q2, q3, q4, q5, q6, q7, verbal accuracy, visual accuracy\r\n';
+        var str = '';
+        for (var i = 0; i < array.length; i++) {
+            var line = '';
+            for (var index in array[i]) {
+                if (line != '') line += ','
+
+                line += array[i][index];
+            }
+
+            str += line + '\r\n';
+        }
+
+        return str;
+    }
+
+    function Demographics(subid, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10) {
+        this.subid = subid;
+        this.Q1 = Q1;
+        this.Q2 = Q2;
+        this.Q3 = Q3;
+        this.Q4 = Q4;
+        this.Q5 = Q5;
+        this.Q6 = Q6;
+        this.Q7 = Q7;
+        this.Q8 = Q8;
+        this.Q9 = Q9;
+        this.Q10 = Q10;
+
+    }
+
+    function ConvertToCSVsurvey(objArray) {
+        var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+        //var str = '';
+        //var str = "sub ID, vvq1 Please rate your visual abilities., vvq2 Please rate your spatial abilities., sblsq3 I prefer to learn visually., sblsq4 I prefer to learn verbally., sblsq5 I am a visual learner., sblsq6 I am a verbal learner., sblsq7 I am good at learning from labeled pictures illustrations graphs maps and animations., sblsq8 I am good at learning from printed text., vviq9 I enjoy doing work that requires the use of words., vviq10 There are some special times in my life that I like to relieve by mentally 'picturing' just how everything looked., vviq11 I can never seem to find the right word when I need it., vviq12 I do a lot of reading., vviq13 When I'm trying to learn something new I'd rather watch a demonstration than read how to do it., vviq14 I think I often use words in the wrong way., vviq15 I enjoy learning new words., vviq16 I like to picture how I could fix up my apartment or a room if I could buy anything I wanted., vviq17 I often make written notes to myself., vviq18 I like to daydream., vviq19 I generally prefer to use a diagram rather than a written set of instructions., vviq20 I like to doodle., vviq21 I find it helps to think in terms of mental pictures when doing many things., vviq22 After I meet someone for the first time I can usually remember what they look like but not much about them., vviq23 I like to think of synonyms for words., vviq24 When I have forgotten something I frequently try to form a mental picture to remember it., vviq25 I like learning new words., vviq26 I prefer to read instructions about how to do something rather than have someone show me., vviq27 I prefer activities that don't require a lot of reading., vviq28 I seldom daydream., vviq29 I spend very little time attempting to increase my vocabulary., vviq30 My thinking often consists of mental pictures or images., Feedback\r\n";
+        var str = '';
+        for (var i = 0; i < array.length; i++) {
+            var line = '';
+            for (var index in array[i]) {
+                if (line != '') line += ','
+
+                line += array[i][index];
+            }
+
+            str += line + '\r\n';
+        }
+
+        return str;
+    }
+
+    function Survey(subid, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, q21, q22, q23, q24, q25, q26, q27, q28, q29, q30, text) {
+        this.subid = subid;
+        this.q1 = q1
+        this.q2 = q2
+        this.q3 = q3
+        this.q4 = q4
+        this.q5 = q5
+        this.q6 = q6
+        this.q7 = q7
+        this.q8 = q8
+        this.q9 = q9
+        this.q10 = q10
+        this.q11 = q11
+        this.q12 = q12
+        this.q13 = q13
+        this.q14 = q14
+        this.q15 = q15
+        this.q16 = q16
+        this.q17 = q17
+        this.q18 = q18
+        this.q19 = q19
+        this.q20 = q20
+        this.q21 = q21
+        this.q22 = q22
+        this.q23 = q23
+        this.q24 = q24
+        this.q25 = q25
+        this.q26 = q26
+        this.q27 = q27
+        this.q28 = q28
+        this.q29 = q29
+        this.q30 = q30
+        this.text = text;
+    }
+
+    function getSubjectData() {
+
+        var trials = jsPsych.data.getTrialsOfType('same-different');
+
+        var sum_rt = 0;
+        var correct_trial_count = 0;
+        var correct_trial_count_word = 0;
+        var correct_trial_count_picture = 0;
+        var correct_rt_count = 0;
+
+        var length = trials.length / 2
+        for (var i = 0; i < trials.length; i++) {
+            if (trials[i].correct == true) {
+
+                correct_trial_count++;
+                var trial = trials[i].stimulus
+                var trial_type = trial.charAt(13)
+                if (trial_type == "w") {
+                    correct_trial_count_word++;
+                }
+                if (trial_type == "t") {
+                    correct_trial_count_picture++;
+                }
+                if (trials[i].rt > -1) {
+                    sum_rt += trials[i].rt;
+                    correct_rt_count++;
+                }
+            }
+        }
+
+        return {
+            rt: Math.floor(sum_rt / correct_rt_count),
+            word_accuracy: Math.floor(correct_trial_count_word / length * 100),
+            picture_accuracy: Math.floor(correct_trial_count_picture / length * 100)
+        }
+    }
+
+    var guid = guid();
+
+    jsPsych.data.addProperties({
+        subject: guid
+    });
+
+
+    jsPsych.pluginAPI.preloadImages(images, function () {
+        startExperiment();
+    }, function (nLoaded) {
+        updateLoadedCount(nLoaded);
+    });
+
+    function updateLoadedCount(nLoaded) {
+        var percentcomplete = nLoaded / images.length * 100;
+
+        // could put something fancier here, like a progress bar
+        // or updating text in the DOM.
+        $("#load").text('Loaded ' + percentcomplete + '% of images');
+    }
+
+    function startExperiment() {
+        jsPsych.init({
+            timeline: timeline,
+            on_finish: function (data) {
+                var List = [];
+                var DemographicsList = [];
+                var newList = [];
+                var ResultList = [];
+                var newnewList = [];
+                var result = jsPsych.data.getData()
+                console.log(result);
+                var trialnumber = 1
+
+                DemographicsList.push(guid);
+                var target = result[2];
+
+
+                /*for(var i = 12; i < 62; i++) {*/
+                for (var i = 3; i < 51; i++) {
+                    var target = result[i];
+                    ///experiment.html:438 Object {rt: 331, answer: "same", correct: true, stimulus: "["ImageFiles/wt1.bmp","ImageFiles/wp1.bmp"]", key_press: 37…}answer: "same"correct: trueinternal_node_id: "0.0-4.0-1.0"key_press: 37rt: 331stimulus: "["ImageFiles/wt1.bmp","ImageFiles/wp1.bmp"]"subject: 1477466933735time_elapsed: 18895trial_index: 5trial_type: "same-different"__proto__: Object
+
+                    //(subid, order, trialNum, TargetImage, ProbeImage, pressedKeyNum, pressedKeyName, RT, medium, mediumCode, accuracy, accuracyCode )
+                    if (target.key_press === 37) {
+                        var keyName = "LeftArrow";
+                    } else if (target.key_press === 39) {
+                        var keyName = "RightArrow";
+                    } else {
+                        var keyName = "Fail";
+                    }
+                    var stimulus = target.stimulus
+                    var stimulus2 = stimulus.replace(/"/g, '');
+                    var stimulus3 = stimulus2.replace("[", '');
+                    var stimulus4 = stimulus3.replace("]", '');
+                    console.log(stimulus4)
+                    var stimulus5 = stimulus4.split(",")
+                    console.log(stimulus5)
+                    var trial_type = stimulus5[0].charAt(11)
+                    console.log(trial_type)
+                    if (trial_type === "w") {
+                        var medium = "word"
+                        var medium_code = 2
+                        var num = stimulus5[0].replace(/[^0-9]/g, '')
+                        var trialcode = num * 2
+                    } else if (trial_type === "t") {
+                        var medium = "picture"
+                        var medium_code = 1
+                        var num = stimulus5[0].replace(/[^0-9]/g, '')
+                        var trialcode = num * 2 - 1
+                    }
+                    if (target.correct === true) {
+                        var accuracy = "correct";
+                        var accuracy_code = 1;
+                    } else if (target.correct === false) {
+                        var accuracy = "incorrect";
+                        var accuracy_code = 0;
+                    }
+                    var object = new Trial(guid, trialnumber, trialcode, stimulus5[0], stimulus5[1], target.key_press, keyName, target.rt, medium, medium_code, accuracy, accuracy_code)
+                    trialnumber++;
+                    console.log(object);
+                    List.push(object)
+                }
+                List.sort(compare);
+                var csvContent = ConvertToCSV(JSON.stringify(List))
+                console.log(csvContent);
+                // saveData("vv2.csv", csvContent);
+
+                //for (var i = 15; i< 24; i++) {
+                for (var i = 51; i < 59; i++) {
+                    var target = result[i];
+                    DemographicsList.push(target.responses);
+                }
+                var subject_data = getSubjectData();
+                var object = new Demographics(DemographicsList[0], parse(DemographicsList[1]), parse(DemographicsList[2]), parse(DemographicsList[3]), parse(DemographicsList[4]), parse(DemographicsList[5]), parse(DemographicsList[6]), parse(DemographicsList[7]), parse(DemographicsList[8]), subject_data.word_accuracy, subject_data.picture_accuracy);
+                newList.push(object);
+                var csvContent2 = ConvertToCSVdemographics(JSON.stringify(newList))
+                console.log(csvContent2);
+                // saveData2("demographics2.csv", csvContent2);
+                console.log("saved2!");
+
+                for (var i = 59; i < 90; i++) {
+                    var target = result[i]
+                    var responses = target.responses
+                    var replaced_responses = responses.replace(/\"\{|\}\"+/g, "");
+                    var split_responses = replaced_responses.split("\"");
+                    console.log(split_responses);
+                    for (var j = 3; j < split_responses.length; j = j + 4) {
+                        ResultList.push(split_responses[j])
+                    }
+                }
+                var object = new Survey(guid, ResultList[0], ResultList[1], ResultList[2], ResultList[3], ResultList[4], ResultList[5], ResultList[6], ResultList[7], ResultList[8], ResultList[9], ResultList[10], ResultList[11], ResultList[12], ResultList[13], ResultList[14], ResultList[15], ResultList[16], ResultList[17], ResultList[18], ResultList[19], ResultList[20], ResultList[21], ResultList[22], ResultList[23], ResultList[24], ResultList[25], ResultList[26], ResultList[27], ResultList[28], ResultList[29], ResultList[30], ResultList[31])
+
+                newnewList.push(object);
+                var csvContent3 = ConvertToCSVsurvey(JSON.stringify(newnewList))
+                console.log("questionnaire2.csv")
+                console.log(csvContent);
+                // saveData3("questionnaire2.csv", csvContent3);
+                jsPsych.init({
+                    timeline: timeline2
+
+                })
+            }
+        });
+    }
+
+    function parse(a) {
+        if (a != "{}") {
+            var parsed = a.split('"');
+            return parsed[3]
+        } else {
+            return a
+        }
+    }
+
+    function compare(a, b) {
+        if (a.trialNum < b.trialNum) return -1;
+        if (a.trialNum > b.trialNum) return 1;
+        return 0;
+    }
+
+    function saveData(filename, filedata) {
+        $.ajax({
+            type: 'post',
+            cache: false,
+            url: 'turk_vv_save.php', // this is the path to the above PHP script
+            data: {filename: filename, filedata: filedata},
+            success: console.log("saved!")
+        });
+    }
+
+    function saveData2(filename, filedata) {
+        $.ajax({
+            type: 'post',
+            cache: false,
+            url: 'turk_demographics_save.php', // this is the path to the above PHP script
+            data: {filename: filename, filedata: filedata},
+            success: console.log("saved!")
+        });
+    }
+
+    function saveData3(filename, filedata) {
+        $.ajax({
+            type: 'post',
+            cache: false,
+            url: 'turk_questionnaire_save.php', // this is the path to the above PHP script
+            data: {filename: filename, filedata: filedata},
+            success: console.log("saved!")
+        });
+    }
+
+    /* function save_data(data){
+      var data_table = "vv_table"; // change this for different experiments
+      $.ajax({
+         type:'post',
+         cache: false,
+         url: 'save.php', // change this to point to your php file.
+
+         // opt_data is to add additional values to every row, like a subject ID
+         // replace 'key' with the column name, and 'value' with the value.
+         data: {
+             table: data_table,
+             json: JSON.stringify(data),
+             opt_data: {"ID": 1},
+         },
+         success: function(output) { console.log(output); } // write the result to javascript console
+      });
+   }*/
+
+</script>
+</html>

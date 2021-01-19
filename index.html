@@ -13,8 +13,6 @@
     <script src="jspsych-5.0.3/plugins/jspsych-survey-multi-choice.js"></script>
     <script src="jspsych-5.0.3/plugins/jspsych-survey-likert.js"></script>
     <script src="jspsych-5.0.3/plugins/jspsych-survey-text.js"></script>
-    <script src="jspsych-5.0.3/plugins/jspsych-survey-text-no-notification.js"></script>
-    <script src="jspsych-5.0.3/plugins/jspsych-survey-text-number.js"></script>
 
     <link href="jspsych-5.0.3/css/jspsych.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="sweetalert/sweetalert/dist/sweetalert.css"/>
@@ -36,19 +34,19 @@
 
         var today = new Date();
         var dd = today.getDate();
-        var mm = today.getMonth()+1; //January is 0!
+        var mm = today.getMonth() + 1; //January is 0!
         var yyyy = today.getFullYear();
 
-        if(dd<10) {
-            dd='0'+dd
+        if (dd < 10) {
+            dd = '0' + dd
         }
 
-        if(mm<10) {
-            mm='0'+mm
+        if (mm < 10) {
+            mm = '0' + mm
         }
 
         var code = Math.floor(1000 + Math.random() * 9000);
-        return mm+''+dd+''+yyyy + '_'+ code
+        return mm + '' + dd + '' + yyyy + '_' + code
     }
 
 
@@ -70,7 +68,7 @@
         return str;
     }
 
-    function Trial(subid, qid, order, trialNum, TargetImage, ProbeImage, pressedKeyNum, pressedKeyName, RT, medium, mediumCode, accuracy, accuracyCode ) {
+    function Trial(subid, qid, order, trialNum, TargetImage, ProbeImage, pressedKeyNum, pressedKeyName, RT, medium, mediumCode, accuracy, accuracyCode) {
         this.subid = subid;
         this.qid = qid;
         this.order = order;
@@ -85,6 +83,7 @@
         this.accuracy = accuracy;
         this.accuracyCode = accuracyCode;
     }
+
     function ConvertToCSVdemographics(objArray) {
         var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
         //var str = 'sub ID, q1, q2, q3, q4, q5, q6, q7, verbal accuracy, visual accuracy\r\n';
@@ -137,38 +136,38 @@
         return str;
     }
 
-    function Survey(subid, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, q21, q22, q23, q24, q25,q26, q27, q28, q29, q30, text) {
+    function Survey(subid, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, q21, q22, q23, q24, q25, q26, q27, q28, q29, q30, text) {
         this.subid = subid;
-        this.q1=q1
-        this.q2=q2
-        this.q3=q3
-        this.q4=q4
-        this.q5=q5
-        this.q6=q6
-        this.q7=q7
-        this.q8=q8
-        this.q9=q9
-        this.q10=q10
-        this.q11=q11
-        this.q12=q12
-        this.q13=q13
-        this.q14=q14
-        this.q15=q15
-        this.q16=q16
-        this.q17=q17
-        this.q18=q18
-        this.q19=q19
-        this.q20=q20
-        this.q21=q21
-        this.q22=q22
-        this.q23=q23
-        this.q24=q24
-        this.q25=q25
-        this.q26=q26
-        this.q27=q27
-        this.q28=q28
-        this.q29=q29
-        this.q30=q30
+        this.q1 = q1
+        this.q2 = q2
+        this.q3 = q3
+        this.q4 = q4
+        this.q5 = q5
+        this.q6 = q6
+        this.q7 = q7
+        this.q8 = q8
+        this.q9 = q9
+        this.q10 = q10
+        this.q11 = q11
+        this.q12 = q12
+        this.q13 = q13
+        this.q14 = q14
+        this.q15 = q15
+        this.q16 = q16
+        this.q17 = q17
+        this.q18 = q18
+        this.q19 = q19
+        this.q20 = q20
+        this.q21 = q21
+        this.q22 = q22
+        this.q23 = q23
+        this.q24 = q24
+        this.q25 = q25
+        this.q26 = q26
+        this.q27 = q27
+        this.q28 = q28
+        this.q29 = q29
+        this.q30 = q30
         this.text = text;
     }
 
@@ -182,7 +181,7 @@
         var correct_trial_count_picture = 0;
         var correct_rt_count = 0;
 
-        var length = trials.length/2
+        var length = trials.length / 2
         for (var i = 0; i < trials.length; i++) {
             if (trials[i].correct == true) {
 
@@ -195,7 +194,7 @@
                 if (trial_type == "t") {
                     correct_trial_count_picture++;
                 }
-                if(trials[i].rt > -1){
+                if (trials[i].rt > -1) {
                     sum_rt += trials[i].rt;
                     correct_rt_count++;
                 }
@@ -217,7 +216,7 @@
 
     var welcome_block = {
         type: 'instructions',
-        pages:[
+        pages: [
             "<p>Welcome!</p> " +
             "<p>In this study, you will complete a simple task in which you will be asked to select a picture or word that is similar to the original.</p>" +
             "<p>In addition to the task, there are some questions about your beliefs, attitudes, opinions, and some standard demographic questions.</p>" +
@@ -240,7 +239,7 @@
         "<p>For example, this picture is <strong>blue, heart, and spirals</strong>.</p>",
             "<p style='font-size:0.8em;text-align:center;'>Page 2 of 3</p>" +
             "<img style='display: block; margin: auto; height: 40%;'src= 'ImageFiles/p1.bmp' alt='Picture'>" +
-            "<p>In this example, the left item is similar to the original item in two features,<strong>color and shape</strong>, whereas the right item is similar to the original item only in one feature, <strong>texture</strong>.</p>"+
+            "<p>In this example, the left item is similar to the original item in two features,<strong>color and shape</strong>, whereas the right item is similar to the original item only in one feature, <strong>texture</strong>.</p>" +
             "<p>Therefore, you should press the <strong>left arrow key</strong> to indicate that the left item is more similar to the original item than the right item.</p>",
             "<p style='font-size:0.8em;text-align:center;'>Page 3 of 3</p>" +
             "<p>Sometimes the item will appear as pictures, whereas in other times, they will appear as words.</p>" +
@@ -398,7 +397,6 @@
     };
 
 
-
     var political_question = ["What is your political identity?"]
     var political_options = ["Strongly Conservative", "Moderately Conservative", "Slightly Conservative", "Slightly Liberal", "Moderately Liberal", "Strongly Liberal"]
 
@@ -434,9 +432,6 @@
         required: [false, false]   // set whether questions are required
         // horizontal: true  // centres questions and makes options display horizontally
     };
-
-
-
 
 
     var vv_question1 = ["Please rate your visual abilities."];
@@ -710,16 +705,14 @@
 
     var debrief_block = {
         type: "text",
-        text: function() {
+        text: function () {
             console.log("here")
             var subject_data = getSubjectData();
             if (subject_data.word_accuracy > subject_data.picture_accuracy) {
                 return "<p>Your Unique ID number is <strong>" + guid + "</strong>. Please copy and paste this code to recieve your payment.</p> <p>You are now finished with the experiment. Please close this tab. Thank you!</p>";
-            }
-            else if (subject_data.word_accuracy == subject_data.picture_accuracy) {
+            } else if (subject_data.word_accuracy == subject_data.picture_accuracy) {
                 return "<p>Your Unique ID number is <strong>" + guid + "</strong>. Please copy and paste this code to recieve your payment.</p> <p>You are now finished with the experiment. Please close this tab. Thank you!</p>";
-            }
-            else {
+            } else {
                 return "<p>Your Unique ID number is <strong>" + guid + "</strong>. Please copy and paste this code to recieve your payment.</p> <p>You are now finished with the experiment. Please close this tab. Thank you!</p>";
             }
 
@@ -778,25 +771,29 @@
 
     timeline.push(survey_trial);
 
-    var timeline2 =[]
+    var timeline2 = []
     timeline2.push(debrief_block);
 
-    var images = ['ImageFiles/p1.bmp','ImageFiles/p2.bmp','ImageFiles/p3.bmp','ImageFiles/p4.bmp','ImageFiles/p5.bmp','ImageFiles/p6.bmp','ImageFiles/p7.bmp','ImageFiles/p8.bmp','ImageFiles/p9.bmp','ImageFiles/p10.bmp','ImageFiles/p11.bmp','ImageFiles/p12.bmp','ImageFiles/p13.bmp','ImageFiles/p14.bmp','ImageFiles/p15.bmp','ImageFiles/p16.bmp','ImageFiles/p17.bmp','ImageFiles/p18.bmp','ImageFiles/p19.bmp','ImageFiles/p20.bmp','ImageFiles/p21.bmp','ImageFiles/p22.bmp','ImageFiles/p23.bmp','ImageFiles/p24.bmp', 'ImageFiles/t1.bmp','ImageFiles/t2.bmp','ImageFiles/t3.bmp','ImageFiles/t4.bmp','ImageFiles/t5.bmp','ImageFiles/t6.bmp','ImageFiles/t7.bmp','ImageFiles/t8.bmp','ImageFiles/t9.bmp','ImageFiles/t10.bmp','ImageFiles/t11.bmp','ImageFiles/t12.bmp','ImageFiles/t13.bmp','ImageFiles/t14.bmp','ImageFiles/t15.bmp','ImageFiles/t16.bmp','ImageFiles/t17.bmp','ImageFiles/t18.bmp','ImageFiles/t19.bmp','ImageFiles/t20.bmp','ImageFiles/t21.bmp','ImageFiles/t22.bmp','ImageFiles/t23.bmp','ImageFiles/t24.bmp', 'ImageFiles/wp1.bmp','ImageFiles/wp2.bmp','ImageFiles/wp3.bmp','ImageFiles/wp4.bmp','ImageFiles/wp5.bmp','ImageFiles/wp6.bmp','ImageFiles/wp7.bmp','ImageFiles/wp8.bmp','ImageFiles/wp9.bmp','ImageFiles/wp10.bmp','ImageFiles/wp11.bmp','ImageFiles/wp12.bmp','ImageFiles/wp13.bmp','ImageFiles/wp14.bmp','ImageFiles/wp15.bmp','ImageFiles/wp16.bmp','ImageFiles/wp17.bmp','ImageFiles/wp18.bmp','ImageFiles/wp19.bmp','ImageFiles/wp20.bmp','ImageFiles/wp21.bmp','ImageFiles/wp22.bmp','ImageFiles/wp23.bmp','ImageFiles/wp24.bmp','ImageFiles/wt1.bmp','ImageFiles/wt2.bmp','ImageFiles/wt3.bmp','ImageFiles/wt4.bmp','ImageFiles/wt5.bmp','ImageFiles/wt6.bmp','ImageFiles/wt7.bmp','ImageFiles/wt8.bmp','ImageFiles/wt9.bmp','ImageFiles/wt10.bmp','ImageFiles/wt11.bmp','ImageFiles/wt12.bmp','ImageFiles/wt13.bmp','ImageFiles/wt14.bmp','ImageFiles/wt15.bmp','ImageFiles/wt16.bmp','ImageFiles/wt17.bmp','ImageFiles/wt18.bmp','ImageFiles/wt19.bmp','ImageFiles/wt20.bmp','ImageFiles/wt21.bmp','ImageFiles/wt22.bmp','ImageFiles/wt23.bmp','ImageFiles/wt24.bmp'];
+    var images = ['ImageFiles/p1.bmp', 'ImageFiles/p2.bmp', 'ImageFiles/p3.bmp', 'ImageFiles/p4.bmp', 'ImageFiles/p5.bmp', 'ImageFiles/p6.bmp', 'ImageFiles/p7.bmp', 'ImageFiles/p8.bmp', 'ImageFiles/p9.bmp', 'ImageFiles/p10.bmp', 'ImageFiles/p11.bmp', 'ImageFiles/p12.bmp', 'ImageFiles/p13.bmp', 'ImageFiles/p14.bmp', 'ImageFiles/p15.bmp', 'ImageFiles/p16.bmp', 'ImageFiles/p17.bmp', 'ImageFiles/p18.bmp', 'ImageFiles/p19.bmp', 'ImageFiles/p20.bmp', 'ImageFiles/p21.bmp', 'ImageFiles/p22.bmp', 'ImageFiles/p23.bmp', 'ImageFiles/p24.bmp', 'ImageFiles/t1.bmp', 'ImageFiles/t2.bmp', 'ImageFiles/t3.bmp', 'ImageFiles/t4.bmp', 'ImageFiles/t5.bmp', 'ImageFiles/t6.bmp', 'ImageFiles/t7.bmp', 'ImageFiles/t8.bmp', 'ImageFiles/t9.bmp', 'ImageFiles/t10.bmp', 'ImageFiles/t11.bmp', 'ImageFiles/t12.bmp', 'ImageFiles/t13.bmp', 'ImageFiles/t14.bmp', 'ImageFiles/t15.bmp', 'ImageFiles/t16.bmp', 'ImageFiles/t17.bmp', 'ImageFiles/t18.bmp', 'ImageFiles/t19.bmp', 'ImageFiles/t20.bmp', 'ImageFiles/t21.bmp', 'ImageFiles/t22.bmp', 'ImageFiles/t23.bmp', 'ImageFiles/t24.bmp', 'ImageFiles/wp1.bmp', 'ImageFiles/wp2.bmp', 'ImageFiles/wp3.bmp', 'ImageFiles/wp4.bmp', 'ImageFiles/wp5.bmp', 'ImageFiles/wp6.bmp', 'ImageFiles/wp7.bmp', 'ImageFiles/wp8.bmp', 'ImageFiles/wp9.bmp', 'ImageFiles/wp10.bmp', 'ImageFiles/wp11.bmp', 'ImageFiles/wp12.bmp', 'ImageFiles/wp13.bmp', 'ImageFiles/wp14.bmp', 'ImageFiles/wp15.bmp', 'ImageFiles/wp16.bmp', 'ImageFiles/wp17.bmp', 'ImageFiles/wp18.bmp', 'ImageFiles/wp19.bmp', 'ImageFiles/wp20.bmp', 'ImageFiles/wp21.bmp', 'ImageFiles/wp22.bmp', 'ImageFiles/wp23.bmp', 'ImageFiles/wp24.bmp', 'ImageFiles/wt1.bmp', 'ImageFiles/wt2.bmp', 'ImageFiles/wt3.bmp', 'ImageFiles/wt4.bmp', 'ImageFiles/wt5.bmp', 'ImageFiles/wt6.bmp', 'ImageFiles/wt7.bmp', 'ImageFiles/wt8.bmp', 'ImageFiles/wt9.bmp', 'ImageFiles/wt10.bmp', 'ImageFiles/wt11.bmp', 'ImageFiles/wt12.bmp', 'ImageFiles/wt13.bmp', 'ImageFiles/wt14.bmp', 'ImageFiles/wt15.bmp', 'ImageFiles/wt16.bmp', 'ImageFiles/wt17.bmp', 'ImageFiles/wt18.bmp', 'ImageFiles/wt19.bmp', 'ImageFiles/wt20.bmp', 'ImageFiles/wt21.bmp', 'ImageFiles/wt22.bmp', 'ImageFiles/wt23.bmp', 'ImageFiles/wt24.bmp'];
 
-    jsPsych.pluginAPI.preloadImages(images, function(){ startExperiment(); }, function(nLoaded) { updateLoadedCount(nLoaded); });
+    jsPsych.pluginAPI.preloadImages(images, function () {
+        startExperiment();
+    }, function (nLoaded) {
+        updateLoadedCount(nLoaded);
+    });
 
-    function updateLoadedCount(nLoaded){
+    function updateLoadedCount(nLoaded) {
         var percentcomplete = nLoaded / images.length * 100;
 
         // could put something fancier here, like a progress bar
         // or updating text in the DOM.
-        $("#load").text('Loaded '+percentcomplete+'% of images');
+        $("#load").text('Loaded ' + percentcomplete + '% of images');
     }
 
-    function startExperiment(){
+    function startExperiment() {
         jsPsych.init({
             timeline: timeline,
-            on_finish: function(data) {
+            on_finish: function (data) {
                 var List = [];
                 var DemographicsList = [];
                 var newList = [];
@@ -816,13 +813,11 @@
                     ///experiment.html:438 Object {rt: 331, answer: "same", correct: true, stimulus: "["ImageFiles/wt1.bmp","ImageFiles/wp1.bmp"]", key_press: 37…}answer: "same"correct: trueinternal_node_id: "0.0-4.0-1.0"key_press: 37rt: 331stimulus: "["ImageFiles/wt1.bmp","ImageFiles/wp1.bmp"]"subject: 1477466933735time_elapsed: 18895trial_index: 5trial_type: "same-different"__proto__: Object
 
                     //(subid, order, trialNum, TargetImage, ProbeImage, pressedKeyNum, pressedKeyName, RT, medium, mediumCode, accuracy, accuracyCode )
-                    if(target.key_press === 37) {
+                    if (target.key_press === 37) {
                         var keyName = "LeftArrow";
-                    }
-                    else if(target.key_press === 39) {
+                    } else if (target.key_press === 39) {
                         var keyName = "RightArrow";
-                    }
-                    else {
+                    } else {
                         var keyName = "Fail";
                     }
                     var stimulus = target.stimulus
@@ -837,24 +832,22 @@
                     if (trial_type === "w") {
                         var medium = "word"
                         var medium_code = 2
-                        var num = stimulus5[0].replace(/[^0-9]/g,'')
-                        var trialcode = num *2
-                    }
-                    else if (trial_type === "t") {
+                        var num = stimulus5[0].replace(/[^0-9]/g, '')
+                        var trialcode = num * 2
+                    } else if (trial_type === "t") {
                         var medium = "picture"
                         var medium_code = 1
-                        var num = stimulus5[0].replace(/[^0-9]/g,'')
-                        var trialcode = num *2 - 1
+                        var num = stimulus5[0].replace(/[^0-9]/g, '')
+                        var trialcode = num * 2 - 1
                     }
-                    if(target.correct === true) {
+                    if (target.correct === true) {
                         var accuracy = "correct";
                         var accuracy_code = 1;
-                    }
-                    else if(target.correct === false) {
+                    } else if (target.correct === false) {
                         var accuracy = "incorrect";
                         var accuracy_code = 0;
                     }
-                    var object = new Trial(guid,trialnumber, trialcode, stimulus5[0], stimulus5[1], target.key_press, keyName, target.rt, medium, medium_code, accuracy, accuracy_code)
+                    var object = new Trial(guid, trialnumber, trialcode, stimulus5[0], stimulus5[1], target.key_press, keyName, target.rt, medium, medium_code, accuracy, accuracy_code)
                     trialnumber++;
                     console.log(object);
                     List.push(object)
@@ -877,17 +870,17 @@
                 // saveData2("demographics2.csv", csvContent2);
                 console.log("saved2!");
 
-                for (var i = 59; i < 90; i ++) {
+                for (var i = 59; i < 90; i++) {
                     var target = result[i]
                     var responses = target.responses
                     var replaced_responses = responses.replace(/\"\{|\}\"+/g, "");
                     var split_responses = replaced_responses.split("\"");
                     console.log(split_responses);
-                    for (var j = 3; j < split_responses.length; j = j+4) {
+                    for (var j = 3; j < split_responses.length; j = j + 4) {
                         ResultList.push(split_responses[j])
                     }
                 }
-                var object = new Survey(guid, ResultList[0], ResultList[1], ResultList[2], ResultList[3], ResultList[4], ResultList[5], ResultList[6], ResultList[7], ResultList[8], ResultList[9], ResultList[10], ResultList[11], ResultList[12], ResultList[13], ResultList[14], ResultList[15], ResultList[16], ResultList[17], ResultList[18], ResultList[19], ResultList[20],ResultList[21], ResultList[22], ResultList[23], ResultList[24], ResultList[25], ResultList[26], ResultList[27], ResultList[28], ResultList[29], ResultList[30], ResultList[31])
+                var object = new Survey(guid, ResultList[0], ResultList[1], ResultList[2], ResultList[3], ResultList[4], ResultList[5], ResultList[6], ResultList[7], ResultList[8], ResultList[9], ResultList[10], ResultList[11], ResultList[12], ResultList[13], ResultList[14], ResultList[15], ResultList[16], ResultList[17], ResultList[18], ResultList[19], ResultList[20], ResultList[21], ResultList[22], ResultList[23], ResultList[24], ResultList[25], ResultList[26], ResultList[27], ResultList[28], ResultList[29], ResultList[30], ResultList[31])
 
                 newnewList.push(object);
                 var csvContent3 = ConvertToCSVsurvey(JSON.stringify(newnewList))
@@ -906,8 +899,7 @@
         if (a != "{}") {
             var parsed = a.split('"');
             return parsed[3]
-        }
-        else {
+        } else {
             return a
         }
     }
@@ -918,9 +910,9 @@
         return 0;
     }
 
-    function saveData(filename, filedata){
+    function saveData(filename, filedata) {
         $.ajax({
-            type:'post',
+            type: 'post',
             cache: false,
             url: 'turk_vv_save.php', // this is the path to the above PHP script
             data: {filename: filename, filedata: filedata},
@@ -928,9 +920,9 @@
         });
     }
 
-    function saveData2(filename, filedata){
+    function saveData2(filename, filedata) {
         $.ajax({
-            type:'post',
+            type: 'post',
             cache: false,
             url: 'turk_demographics_save.php', // this is the path to the above PHP script
             data: {filename: filename, filedata: filedata},
@@ -938,9 +930,9 @@
         });
     }
 
-    function saveData3(filename, filedata){
+    function saveData3(filename, filedata) {
         $.ajax({
-            type:'post',
+            type: 'post',
             cache: false,
             url: 'turk_questionnaire_save.php', // this is the path to the above PHP script
             data: {filename: filename, filedata: filedata},
