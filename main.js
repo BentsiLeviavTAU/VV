@@ -507,55 +507,55 @@ var debrief_block = {
 };
 
 var timeline = [];
-timeline.push(welcome_block);
-timeline.push(instructions_block);
+// timeline.push(welcome_block);
+// timeline.push(instructions_block);
 timeline.push(start_block);
-timeline.push(block);
+// timeline.push(block);
 
 timeline.push(multi_choice_block_sex)
 timeline.push(multi_choice_block_age);
-timeline.push(multi_choice_block_lang);
-timeline.push(multi_choice_block_part);
-timeline.push(multi_choice_block_race1)
+// timeline.push(multi_choice_block_lang);
+// timeline.push(multi_choice_block_part);
+// timeline.push(multi_choice_block_race1)
+//
+// timeline.push(multi_choice_block_political);
+// timeline.push(multi_choice_block_religious2);
+//
+// timeline.push(multi_choice_block_education);
+//
+//
+// timeline.push(multi_choice_block_vv1);
+// timeline.push(multi_choice_block_vv2);
+// timeline.push(multi_choice_block_sblsq1);
+// timeline.push(multi_choice_block_sblsq2);
+// timeline.push(multi_choice_block_sblsq3);
+// timeline.push(multi_choice_block_sblsq4);
+// timeline.push(multi_choice_block_sblsq5);
+// timeline.push(multi_choice_block_sblsq6);
+// timeline.push(multi_choice_block_vviq1);
+// timeline.push(multi_choice_block_vviq2);
+// timeline.push(multi_choice_block_vviq3);
+// timeline.push(multi_choice_block_vviq4);
+// timeline.push(multi_choice_block_vviq5);
+// timeline.push(multi_choice_block_vviq6);
+// timeline.push(multi_choice_block_vviq7);
+// timeline.push(multi_choice_block_vviq8);
+// timeline.push(multi_choice_block_vviq9);
+// timeline.push(multi_choice_block_vviq10);
+// timeline.push(multi_choice_block_vviq11);
+// timeline.push(multi_choice_block_vviq12);
+// timeline.push(multi_choice_block_vviq13);
+// timeline.push(multi_choice_block_vviq14);
+// timeline.push(multi_choice_block_vviq15);
+// timeline.push(multi_choice_block_vviq16);
+// timeline.push(multi_choice_block_vviq17);
+// timeline.push(multi_choice_block_vviq18);
+// timeline.push(multi_choice_block_vviq19);
+// timeline.push(multi_choice_block_vviq20);
+// timeline.push(multi_choice_block_vviq21);
+// timeline.push(multi_choice_block_vviq22);
 
-timeline.push(multi_choice_block_political);
-timeline.push(multi_choice_block_religious2);
-
-timeline.push(multi_choice_block_education);
-
-
-timeline.push(multi_choice_block_vv1);
-timeline.push(multi_choice_block_vv2);
-timeline.push(multi_choice_block_sblsq1);
-timeline.push(multi_choice_block_sblsq2);
-timeline.push(multi_choice_block_sblsq3);
-timeline.push(multi_choice_block_sblsq4);
-timeline.push(multi_choice_block_sblsq5);
-timeline.push(multi_choice_block_sblsq6);
-timeline.push(multi_choice_block_vviq1);
-timeline.push(multi_choice_block_vviq2);
-timeline.push(multi_choice_block_vviq3);
-timeline.push(multi_choice_block_vviq4);
-timeline.push(multi_choice_block_vviq5);
-timeline.push(multi_choice_block_vviq6);
-timeline.push(multi_choice_block_vviq7);
-timeline.push(multi_choice_block_vviq8);
-timeline.push(multi_choice_block_vviq9);
-timeline.push(multi_choice_block_vviq10);
-timeline.push(multi_choice_block_vviq11);
-timeline.push(multi_choice_block_vviq12);
-timeline.push(multi_choice_block_vviq13);
-timeline.push(multi_choice_block_vviq14);
-timeline.push(multi_choice_block_vviq15);
-timeline.push(multi_choice_block_vviq16);
-timeline.push(multi_choice_block_vviq17);
-timeline.push(multi_choice_block_vviq18);
-timeline.push(multi_choice_block_vviq19);
-timeline.push(multi_choice_block_vviq20);
-timeline.push(multi_choice_block_vviq21);
-timeline.push(multi_choice_block_vviq22);
-
-timeline.push(survey_trial);
+// timeline.push(survey_trial);
 
 var timeline2 = []
 timeline2.push(debrief_block);
