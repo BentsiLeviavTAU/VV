@@ -15,7 +15,7 @@
     <script src="jspsych-5.0.3/plugins/jspsych-survey-likert.js"></script>
     <script src="jspsych-5.0.3/plugins/jspsych-survey-text.js"></script>
 
-    <link href="jspsych-5.0.3/css/jspsych.css" rel="stylesheet" type="text/css"/>
+    <link href="https://bentsileviavtau.github.io/VV/jspsych-5.0.3/css/jspsych.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="sweetalert/sweetalert/dist/sweetalert.css"/>
 </head>
 <body>
@@ -234,103 +234,104 @@
         jsPsych.init({
             timeline: timeline,
             on_finish: function (data) {
-                var List = [];
-                var DemographicsList = [];
-                var newList = [];
-                var ResultList = [];
-                var newnewList = [];
+                // var List = [];
+                // var DemographicsList = [];
+                // var newList = [];
+                // var ResultList = [];
+                // var newnewList = [];
                 var result = jsPsych.data.getData()
-                console.log(result);
-                var trialnumber = 1
-
-                DemographicsList.push(guid);
-                var target = result[2];
-
-
-                /*for(var i = 12; i < 62; i++) {*/
-                for (var i = 3; i < 51; i++) {
-                    var target = result[i];
-                    ///experiment.html:438 Object {rt: 331, answer: "same", correct: true, stimulus: "["ImageFiles/wt1.bmp","ImageFiles/wp1.bmp"]", key_press: 37…}answer: "same"correct: trueinternal_node_id: "0.0-4.0-1.0"key_press: 37rt: 331stimulus: "["ImageFiles/wt1.bmp","ImageFiles/wp1.bmp"]"subject: 1477466933735time_elapsed: 18895trial_index: 5trial_type: "same-different"__proto__: Object
-
-                    //(subid, order, trialNum, TargetImage, ProbeImage, pressedKeyNum, pressedKeyName, RT, medium, mediumCode, accuracy, accuracyCode )
-                    if (target.key_press === 37) {
-                        var keyName = "LeftArrow";
-                    } else if (target.key_press === 39) {
-                        var keyName = "RightArrow";
-                    } else {
-                        var keyName = "Fail";
-                    }
-                    var stimulus = target.stimulus
-                    var stimulus2 = stimulus.replace(/"/g, '');
-                    var stimulus3 = stimulus2.replace("[", '');
-                    var stimulus4 = stimulus3.replace("]", '');
-                    console.log(stimulus4)
-                    var stimulus5 = stimulus4.split(",")
-                    console.log(stimulus5)
-                    var trial_type = stimulus5[0].charAt(11)
-                    console.log(trial_type)
-                    if (trial_type === "w") {
-                        var medium = "word"
-                        var medium_code = 2
-                        var num = stimulus5[0].replace(/[^0-9]/g, '')
-                        var trialcode = num * 2
-                    } else if (trial_type === "t") {
-                        var medium = "picture"
-                        var medium_code = 1
-                        var num = stimulus5[0].replace(/[^0-9]/g, '')
-                        var trialcode = num * 2 - 1
-                    }
-                    if (target.correct === true) {
-                        var accuracy = "correct";
-                        var accuracy_code = 1;
-                    } else if (target.correct === false) {
-                        var accuracy = "incorrect";
-                        var accuracy_code = 0;
-                    }
-                    var object = new Trial(guid, trialnumber, trialcode, stimulus5[0], stimulus5[1], target.key_press, keyName, target.rt, medium, medium_code, accuracy, accuracy_code)
-                    trialnumber++;
-                    console.log(object);
-                    List.push(object)
-                }
-                List.sort(compare);
-                var csvContent = ConvertToCSV(JSON.stringify(List))
-                console.log(csvContent);
-                // saveData("vv2.csv", csvContent);
-
-                //for (var i = 15; i< 24; i++) {
-                for (var i = 51; i < 59; i++) {
-                    var target = result[i];
-                    DemographicsList.push(target.responses);
-                }
-                var subject_data = getSubjectData();
-                var object = new Demographics(DemographicsList[0], parse(DemographicsList[1]), parse(DemographicsList[2]), parse(DemographicsList[3]), parse(DemographicsList[4]), parse(DemographicsList[5]), parse(DemographicsList[6]), parse(DemographicsList[7]), parse(DemographicsList[8]), subject_data.word_accuracy, subject_data.picture_accuracy);
-                newList.push(object);
-                var csvContent2 = ConvertToCSVdemographics(JSON.stringify(newList))
-                console.log(csvContent2);
-                // saveData2("demographics2.csv", csvContent2);
-                console.log("saved2!");
-
-                for (var i = 59; i < 90; i++) {
-                    var target = result[i]
-                    var responses = target.responses
-                    var replaced_responses = responses.replace(/\"\{|\}\"+/g, "");
-                    var split_responses = replaced_responses.split("\"");
-                    console.log(split_responses);
-                    for (var j = 3; j < split_responses.length; j = j + 4) {
-                        ResultList.push(split_responses[j])
-                    }
-                }
-                var object = new Survey(guid, ResultList[0], ResultList[1], ResultList[2], ResultList[3], ResultList[4], ResultList[5], ResultList[6], ResultList[7], ResultList[8], ResultList[9], ResultList[10], ResultList[11], ResultList[12], ResultList[13], ResultList[14], ResultList[15], ResultList[16], ResultList[17], ResultList[18], ResultList[19], ResultList[20], ResultList[21], ResultList[22], ResultList[23], ResultList[24], ResultList[25], ResultList[26], ResultList[27], ResultList[28], ResultList[29], ResultList[30], ResultList[31])
-
-                newnewList.push(object);
-                var csvContent3 = ConvertToCSVsurvey(JSON.stringify(newnewList))
-                console.log("questionnaire2.csv")
-                console.log(csvContent);
+                console.log(result)
+                // console.log(result);
+                // var trialnumber = 1
+                //
+                // DemographicsList.push(guid);
+                // var target = result[2];
+                //
+                //
+                // /*for(var i = 12; i < 62; i++) {*/
+                // for (var i = 3; i < 51; i++) {
+                //     var target = result[i];
+                //     ///experiment.html:438 Object {rt: 331, answer: "same", correct: true, stimulus: "["ImageFiles/wt1.bmp","ImageFiles/wp1.bmp"]", key_press: 37…}answer: "same"correct: trueinternal_node_id: "0.0-4.0-1.0"key_press: 37rt: 331stimulus: "["ImageFiles/wt1.bmp","ImageFiles/wp1.bmp"]"subject: 1477466933735time_elapsed: 18895trial_index: 5trial_type: "same-different"__proto__: Object
+                //
+                //     //(subid, order, trialNum, TargetImage, ProbeImage, pressedKeyNum, pressedKeyName, RT, medium, mediumCode, accuracy, accuracyCode )
+                //     if (target.key_press === 37) {
+                //         var keyName = "LeftArrow";
+                //     } else if (target.key_press === 39) {
+                //         var keyName = "RightArrow";
+                //     } else {
+                //         var keyName = "Fail";
+                //     }
+                //     var stimulus = target.stimulus
+                //     var stimulus2 = stimulus.replace(/"/g, '');
+                //     var stimulus3 = stimulus2.replace("[", '');
+                //     var stimulus4 = stimulus3.replace("]", '');
+                //     console.log(stimulus4)
+                //     var stimulus5 = stimulus4.split(",")
+                //     console.log(stimulus5)
+                //     var trial_type = stimulus5[0].charAt(11)
+                //     console.log(trial_type)
+                //     if (trial_type === "w") {
+                //         var medium = "word"
+                //         var medium_code = 2
+                //         var num = stimulus5[0].replace(/[^0-9]/g, '')
+                //         var trialcode = num * 2
+                //     } else if (trial_type === "t") {
+                //         var medium = "picture"
+                //         var medium_code = 1
+                //         var num = stimulus5[0].replace(/[^0-9]/g, '')
+                //         var trialcode = num * 2 - 1
+                //     }
+                //     if (target.correct === true) {
+                //         var accuracy = "correct";
+                //         var accuracy_code = 1;
+                //     } else if (target.correct === false) {
+                //         var accuracy = "incorrect";
+                //         var accuracy_code = 0;
+                //     }
+                //     var object = new Trial(guid, trialnumber, trialcode, stimulus5[0], stimulus5[1], target.key_press, keyName, target.rt, medium, medium_code, accuracy, accuracy_code)
+                //     trialnumber++;
+                //     console.log(object);
+                //     List.push(object)
+                // }
+                // List.sort(compare);
+                // var csvContent = ConvertToCSV(JSON.stringify(List))
+                // console.log(csvContent);
+                // // saveData("vv2.csv", csvContent);
+                //
+                // //for (var i = 15; i< 24; i++) {
+                // for (var i = 51; i < 59; i++) {
+                //     var target = result[i];
+                //     DemographicsList.push(target.responses);
+                // }
+                // var subject_data = getSubjectData();
+                // var object = new Demographics(DemographicsList[0], parse(DemographicsList[1]), parse(DemographicsList[2]), parse(DemographicsList[3]), parse(DemographicsList[4]), parse(DemographicsList[5]), parse(DemographicsList[6]), parse(DemographicsList[7]), parse(DemographicsList[8]), subject_data.word_accuracy, subject_data.picture_accuracy);
+                // newList.push(object);
+                // var csvContent2 = ConvertToCSVdemographics(JSON.stringify(newList))
+                // console.log(csvContent2);
+                // // saveData2("demographics2.csv", csvContent2);
+                // console.log("saved2!");
+                //
+                // for (var i = 59; i < 90; i++) {
+                //     var target = result[i]
+                //     var responses = target.responses
+                //     var replaced_responses = responses.replace(/\"\{|\}\"+/g, "");
+                //     var split_responses = replaced_responses.split("\"");
+                //     console.log(split_responses);
+                //     for (var j = 3; j < split_responses.length; j = j + 4) {
+                //         ResultList.push(split_responses[j])
+                //     }
+                // }
+                // var object = new Survey(guid, ResultList[0], ResultList[1], ResultList[2], ResultList[3], ResultList[4], ResultList[5], ResultList[6], ResultList[7], ResultList[8], ResultList[9], ResultList[10], ResultList[11], ResultList[12], ResultList[13], ResultList[14], ResultList[15], ResultList[16], ResultList[17], ResultList[18], ResultList[19], ResultList[20], ResultList[21], ResultList[22], ResultList[23], ResultList[24], ResultList[25], ResultList[26], ResultList[27], ResultList[28], ResultList[29], ResultList[30], ResultList[31])
+                //
+                // newnewList.push(object);
+                // var csvContent3 = ConvertToCSVsurvey(JSON.stringify(newnewList))
+                // console.log("questionnaire2.csv")
+                // console.log(csvContent);
                 // saveData3("questionnaire2.csv", csvContent3);
-                jsPsych.init({
-                    timeline: timeline2
-
-                })
+                // jsPsych.init({
+                //     timeline: timeline2
+                //
+                // })
             }
         });
     }
