@@ -57,7 +57,7 @@ var block = {
         /*Word with words, picture with pictures*/
         /*Double check if errors*/
         {stimuli: [`${repoSite}ImageFiles/single1.bmp`, `${repoSite}ImageFiles/two1.bmp`], answer: 'same'},
-        {stimuli: [`${repoSite}ImageFiles/blue-test.png`, `${repoSite}ImageFiles/orange-test.png`], answer: 'same'},
+        {stimuli: [`${repoSite}ImageFiles/single1.bmp`, `${repoSite}ImageFiles/two1.bmp`], answer: 'same'},
         // {stimuli: [`${repoSite}ImageFiles/word-single1.bmp`, `${repoSite}ImageFiles/word-two1.bmp`], answer: 'same'},
         // {stimuli: [`${repoSite}ImageFiles/single2.bmp`, `${repoSite}ImageFiles/two2.bmp`], answer: 'same'},
         // {stimuli: [`${repoSite}ImageFiles/word-single2.bmp`, `${repoSite}ImageFiles/word-two2.bmp`], answer: 'same'},
