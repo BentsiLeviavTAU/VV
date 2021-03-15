@@ -49,7 +49,7 @@ var block = {
     same_key: 37,
     different_key: 39,
 //timing_first_stim: 2300,
-    timing_second_stim: 3500,
+    timing_second_stim: -1,
 //timing_response: 10000,
     timeline: [
         /*Put everything in the center*/
